@@ -1,0 +1,28 @@
+{% extends "base_usuario.html" %}
+
+{% block title %}Mudar a senha{% endblock %}
+
+{% block body %}
+	
+	<form action="{% url 'alterar_senha' %}" class="form-signin" role="form" method="post">
+			{% csrf_token %}
+			<h2 class="form-signin-heading">Alterar Senha</h2>
+
+			<input type="password" class="form-control" id="id_password" name="password" placeholder="Senha Atual" required>
+
+			<input type="password" class="form-control" id="id_password" name="password" placeholder="Nova senha" required>
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit" value="Alterar">Alterar</button>
+
+			<input type="hidden" name="next" value="{{ next }}">
+
+			{% if form.erros %}
+				<div class="alert alert-danger">
+					<button class="close" type="button" data-dismiss="alert" aria-hidden="true">&times;</button>
+					Senha invalida
+				</div>
+			{% endif %}
+
+	</form>
+
+{% endblock %}
