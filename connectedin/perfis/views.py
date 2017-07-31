@@ -7,6 +7,13 @@ from .models import Perfil, Convite, Senha
 
 from django.contrib.auth.decorators import login_required, permission_required
 
+def get_current_profile(request):
+    try:
+        profile = request.user.profile
+        return profile if (isinstance(profile, Profile)) else None
+    except:
+        return None
+
 @login_required
 def index(request):
 	perfis = Perfil.objects.all()
@@ -45,6 +52,15 @@ def aceitar(resquest, convite_id):
 
 
 #################
+
+'''@login_required
+def view_convite(request):
+    current_profile = get_current_profile(request)
+    return render(request, 'convite.html', {
+        "current_profile": current_profile,
+        "convites": current_profile.convites_made.all(),
+        "invited": current_profile.convites_received.all()
+    })'''
 
 @login_required
 def block(request, id):
