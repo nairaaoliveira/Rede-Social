@@ -1,6 +1,20 @@
 {% extends "base_usuario.html" %}
 
-{% block body %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ConnectedIn</title>
+    <link href="{% static 'styles/bootstrap.css' %}" rel="stylesheet"/>
+    <link href="{% static 'styles/materialdesignicons.css' %}" rel="stylesheet"/>
+    <link href="{% static 'styles/main.css' %}" rel="stylesheet"/>
+</head>
+<body>
+
+
+
 <div class="container">
     <div class="page-header text-center">
         <h1 id="timeline">Timeline 2.0</h1>
@@ -128,3 +142,5 @@
         
     </ul>
 </div>
+
+{% endblock %}
